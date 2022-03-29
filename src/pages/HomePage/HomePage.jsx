@@ -15,7 +15,7 @@ function HomePage() {
               <input className='main__search-input' type="text" name="q" placeholder='Search...'/>
             </form>
             <div className='main__icon-container'>
-
+              
             </div>
           </div>
         </div>

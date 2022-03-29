@@ -1,0 +1,13 @@
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/colors" as *;
+@use "../../styles/partials/variables" as *;
+
+.settings-page {
+  width: 100%;
+  background-color: $off-white;
+  min-height: 100vh;
+  &__wrapper {
+    min-height: 95vh;
+    @include flex-it(column, nowrap, center, center);
+  }
+}
