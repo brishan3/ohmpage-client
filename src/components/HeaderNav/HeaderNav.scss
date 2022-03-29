@@ -1,0 +1,65 @@
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/colors" as *;
+@use "../../styles/partials/variables" as *;
+
+.header-nav {
+  position: absolute;
+  width: 100%;
+  height: 4.5rem;
+  padding: 0 1rem;
+  @include flex-it(row, nowrap, space-between, center);
+  @include tablet {
+    height: 5rem;
+    padding: 0 1.75rem;
+  }
+  &__logo {
+    color: $off-white;
+    text-shadow: 2px 3px 5px rgba(0,0,0,0.2);
+    &-prefix{
+      color: $primary-CTA
+    }
+  }
+}
+
+.nav-menu {
+  $menu-hamburger-size: 35px;
+  height: $menu-hamburger-size;
+  &__button {
+    background: none;
+    border: none;
+    & svg {
+      fill: $primary-CTA;
+      width: $menu-hamburger-size;
+      height: $menu-hamburger-size;
+      filter: drop-shadow(3px 5px 2px rgb(0 0 0 / 0.15));
+    }
+  }
+}
+
+.dropdown {
+  height: 0px;
+  position: absolute;
+  top: 4.3rem;
+  width: 15rem;
+  transform: translateX(-80%);
+  overflow: hidden;
+  transition: 1s;
+  @include box-shadow();
+  &--active {
+    background-color: $menu-background;
+    border-radius: $ui-border-radius;
+    padding: 0.75rem;
+    height: 120px;
+  }
+  &__menu-item {
+    height: 3rem;
+    border-radius: $ui-border-radius;
+    padding: 0.5rem;
+    @include flex-it(row, nowrap, center, center);
+    &-text{
+      font-weight: 600;
+      color: $primary-text;
+    }
+  }
+}
+
