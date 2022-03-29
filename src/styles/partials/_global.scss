@@ -11,7 +11,8 @@ body {
  font-family: 'Nunito', sans-serif;
  font-weight: 400;
  min-height: 100vh;
- overflow: hidden;
+ max-height: fit-content;
+ overflow: hidden visible;
 }
 
 a {

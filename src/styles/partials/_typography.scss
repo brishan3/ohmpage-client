@@ -58,6 +58,12 @@ h4 {
   }
 }
 
+input {
+  font-size: 0.875rem;
+  line-height: 1.375rem;
+  font-weight: 400;
+}
+
 //Desktop & Tablet
 
 @include tablet {

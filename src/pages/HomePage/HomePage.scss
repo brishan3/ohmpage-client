@@ -20,7 +20,7 @@
     background-color: $light-grey;
     height: fit-content;
     padding: 0.25rem;
-    width: 25rem;
+    width: $search-bar-width;
     border-radius: $ui-border-radius;
     @include box-shadow();
     }
@@ -40,7 +40,7 @@
     }
   }
   &__icon-container {
-
+    width: $search-bar-width;
   }
 }
 
