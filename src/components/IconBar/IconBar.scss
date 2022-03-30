@@ -11,9 +11,11 @@
 }
 
 .icon-container {
-  $icon-container-size: 35px;
+  $icon-container-size: 40px;
   height: $icon-container-size;
   width: $icon-container-size;
   border-radius: 50%;
   background-color: $primary-text;
+  @include flex-it(row, nowrap, center, center);
+  padding-right: 1px;
 }

@@ -1,7 +1,7 @@
 import "./MainSearch.scss";
 import IconBar from '../IconBar/IconBar';
 
-function MainSearch() {
+function MainSearch({linksList}) {
   return (
   <div className='main__wrapper page-wrapper'>
     <div className='main__container'>
@@ -11,7 +11,7 @@ function MainSearch() {
         </form>
       </div>
       <div className='main__icon-container'>
-        <IconBar/>
+        <IconBar linksList={linksList}/>
       </div>
     </div>
   </div>

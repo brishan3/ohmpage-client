@@ -8,11 +8,13 @@ import MainSearch from '../../components/MainSearch/MainSearch';
 import SettingsPage from '../SettingsPage/SettingsPage';
 import axios from 'axios';
 
-
+//
+// Renders all the main 
+//
 function HomePage() {
   const [background, setBackground] = useState(testBackground2);
   const [ linksList, setLinks ] = useState([]);
-
+  
   const getLinks = () => {
     axios
       .get(`${process.env.REACT_APP_API_URL}/links`)
@@ -30,36 +32,25 @@ function HomePage() {
     getLinks()
   }, [])
 
-  // useEffect(() => {
-    // console.log(linksList);
-  // })
-
   return (
     <main className="main" style={{backgroundImage: `url(${background})`}}>
       <Switch>
         <Route path="/" exact component={(routerProps) => (
-          <MainSearch linksList={linksList} {...routerProps}/>
+          <MainSearch
+            linksList={linksList} 
+            {...routerProps}
+          />
         )}/>
         <Route path="/linklibrary" component={(routerProps) => (
-          <LinksPage linksList={linksList} {...routerProps}/>
+          <LinksPage
+            linksList={linksList}
+            {...routerProps}
+          />
         )}/>
         <Route path="/settings" component={SettingsPage}/>
       </Switch>
     </main>
   )
-}
-
-function getLinks() {
-  axios
-    .get(`${process.env.REACT_APP_API_URL}/links`)
-    .then((res) => {
-      // console.log(res.data);
-      return res.data;
-    })
-    .catch((err) => {
-      console.log(err);
-      return [];
-    })
 }
 
 export default HomePage;
