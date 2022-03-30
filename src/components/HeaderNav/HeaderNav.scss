@@ -22,8 +22,9 @@
 }
 
 .nav-menu {
-  $menu-hamburger-size: 35px;
+  $menu-hamburger-size: 30px;
   height: $menu-hamburger-size;
+  
   &__button {
     background: none;
     border: none;
@@ -38,6 +39,7 @@
 }
 
 .dropdown {
+  z-index: 1;
   height: 0px;
   position: absolute;
   top: 4.3rem;

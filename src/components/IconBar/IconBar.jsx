@@ -1,5 +1,5 @@
 import './IconBar.scss';
-import React from 'react';
+import { useState } from 'react';
 import Button from '@mui/material/Button';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
@@ -9,35 +9,34 @@ import { IconButton, Grow } from '@mui/material';
 import InfoIcon from '@mui/icons-material/Info';
 import EmojiPeopleIcon from '@mui/icons-material/EmojiPeople';
 import HomeRepairServiceIcon from '@mui/icons-material/HomeRepairService';
-// import Grow from '@mui/material/Grow';
 
-function IconBar({linksList}) {
+function IconBar({links}) {
   // const shortList = linksList.slice(0,5);
   const iconColor = '#71c0f5';
   return (
     <div className="icon-bar">
       <div className="icon-container">
-        <FadeMenu list={linksList} category="Entertainment">
+        <FadeMenu list={links.entertainment} category="Entertainment">
           <TheatersIcon sx={{color: iconColor}}/>
         </FadeMenu>
       </div>
       <div className="icon-container">
-        <FadeMenu list={linksList} category="Social">
+        <FadeMenu list={links.social} category="Social">
           <EmojiPeopleIcon sx={{color: iconColor}}/>
         </FadeMenu>
       </div>
       <div className="icon-container" >
-        <FadeMenu list={linksList} category="Web Tools">
+        <FadeMenu list={links.webTools} category="Web Tools">
           <HomeRepairServiceIcon sx={{color: iconColor}}/>
         </FadeMenu>
       </div>
       <div className="icon-container">
-        <FadeMenu list={linksList} category="Software">
+        <FadeMenu list={links.software} category="Software">
           <CodeIcon sx={{color: iconColor}}/>
         </FadeMenu>
       </div>
       <div className="icon-container">
-        <FadeMenu list={linksList} category="Information">
+        <FadeMenu list={links.information} category="Information">
           <InfoIcon sx={{color: iconColor}}/>
         </FadeMenu>
       </div>
@@ -45,8 +44,8 @@ function IconBar({linksList}) {
   )
 }
 
-function FadeMenu({children, list, category}) {
-  const [anchorEl, setAnchorEl] = React.useState(null);
+function FadeMenu({children, list}) {
+  const [anchorEl, setAnchorEl] = useState(null);
   const open = Boolean(anchorEl);
 
   const handleClick = (event) => {
@@ -67,7 +66,6 @@ function FadeMenu({children, list, category}) {
         onClick={handleClick}
 
       >
-        {/* <TheatersIcon sx={{color: 'white'}}/> */}
         {children}
       </IconButton>
       <Menu
@@ -95,10 +93,8 @@ function FadeMenu({children, list, category}) {
           },
         }}
       >
-        {list.filter((element) => {
-          return element.category === category
-        })
-        // .slice(0,10)
+        {list
+        .slice(0,50)
         .map((element) => {
           return (
             <MenuItem key={element.url} onClick={handleClose}><a href={element.url} target="_blank">{element.title}</a></MenuItem>

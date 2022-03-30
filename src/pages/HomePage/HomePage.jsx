@@ -14,7 +14,9 @@ import axios from 'axios';
 function HomePage() {
   const [background, setBackground] = useState(testBackground2);
   const [ linksList, setLinks ] = useState([]);
-  
+  const [categorizedLinks, setCategorizedLinks] = useState({ entertainment: [], social: [], webTools: [], software: [], information: []  });
+  // const [categorizedLinks, setCategorizedLinks] = useState({ });
+
   const getLinks = () => {
     axios
       .get(`${process.env.REACT_APP_API_URL}/links`)
@@ -28,6 +30,26 @@ function HomePage() {
       })
   };
 
+  const organizeLinks = () => {
+    const categories = ["Entertainment", "Social", "Web Tools", "Software", "Information"];
+    let categoriesArr = categories.map( category => {
+      return linksList.filter((element) => element.category === category)
+    })
+    setCategorizedLinks(
+      {
+        entertainment: categoriesArr[0],
+        social: categoriesArr[1],
+        webTools: categoriesArr[2],
+        software: categoriesArr[3],
+        information: categoriesArr[4]
+      }
+    )
+  }
+
+  useEffect(() => {
+    organizeLinks()
+  }, [linksList])
+
   useEffect(() => {
     getLinks()
   }, [])
@@ -37,7 +59,7 @@ function HomePage() {
       <Switch>
         <Route path="/" exact component={(routerProps) => (
           <MainSearch
-            linksList={linksList} 
+            links={categorizedLinks} 
             {...routerProps}
           />
         )}/>
