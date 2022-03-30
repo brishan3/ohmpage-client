@@ -1,63 +1,60 @@
 import './LinksPage.scss';
-import { useState, useEffect } from 'react';
-import axios from 'axios';
-import LinkElement from '../../components/LinkElement/LinkElement';
+import { DataGrid, GridColDef, GridRenderCellParams } from '@mui/x-data-grid';
 
+const columns: GridColDef[] = [
+  {
+    field: 'title', 
+    headerName: 'Title',
+    width: 200,
+  },
+  {
+    field: 'url', 
+    headerName: 'URL',
+    width: 200,
+    renderCell: (params: GridRenderCellParams) => (
+      <a href={params.value} target='_blank'>
+        {params.value}
+      </a>
+    )
+  },
+  {
+    field: 'description', 
+    headerName: 'Description',
+    width: 200,
+  },
+  {
+    field: 'category', 
+    headerName: 'Category',
+    width: 200,
+  },
+  {
+    field: 'subcategory', 
+    headerName: 'Subcategory',
+    width: 200,
+  },
+]
 
-function LinksPage() {
-  const [ linksList, setLinks ] = useState([]);
-  const getLinks = () => {
-    axios
-      .get(`${process.env.REACT_APP_API_URL}/links`)
-      .then((res) => {
-        console.log(res.data);
-        setLinks(res.data);
-      })
-      .catch((err) => {
-        console.log(err);
-        return [];
-      })
-  };
-
-  useEffect(() => {
-    getLinks()
-  }, [])
+function LinksPage({linksList}) {
 
   return (
-    <main className="links-page" style={{backgroundColor: `${"#323232"}`}}>
       <div className='links-page__wrapper page-wrapper'>
-        <div className='links-page__container'>
-        {linksList.map((element => {
-            return (
-              <LinkElement
-                key={element.id}
-                title={element.title}
-                url={element.url}
-                description={element.description}
-                category={element.category}
-                subcategory={element.subcategory}
-                status={element.status}
-              />
-              )
-          }))}
-        </div>
+        <DataGrid
+          rows = {linksList}
+          columns={columns}
+          pageSize={50}
+          sx={{
+            backgroundColor: '#FAF8F9',
+            width: '100%',
+            boxShadow: 2,
+            border: 3,
+            borderRadius: 4,
+            borderColor: '#71c0f5',
+           }}
+        />
       </div>
-    </main>
   )
 }
 
-function getLinks() {
-  axios
-    .get(`${process.env.REACT_APP_API_URL}/links`)
-    .then((res) => {
-      console.log(res.data);
-      return res.data;
-    })
-    .catch((err) => {
-      console.log(err);
-      return [];
-    })
-}
 
 
 export default LinksPage;

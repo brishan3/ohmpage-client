@@ -1,0 +1,19 @@
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/colors" as *;
+@use "../../styles/partials/variables" as *;
+
+
+.icon-bar {
+  width: 95%;
+  margin: 0 auto;
+  @include flex-it( row, nowrap, space-around, center);
+  margin-top: 1rem;
+}
+
+.icon-container {
+  $icon-container-size: 35px;
+  height: $icon-container-size;
+  width: $icon-container-size;
+  border-radius: 50%;
+  background-color: $primary-text;
+}

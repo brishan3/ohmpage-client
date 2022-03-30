@@ -27,6 +27,7 @@
   &__button {
     background: none;
     border: none;
+    cursor: pointer;
     & svg {
       fill: $primary-CTA;
       width: $menu-hamburger-size;

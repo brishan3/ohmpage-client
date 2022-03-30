@@ -20,7 +20,7 @@ function Nav() {
   )
 }
 
-function NavMenu(props) {
+function NavMenu() {
 
   const [open, setOpen] = useState(false);
 
@@ -29,15 +29,15 @@ function NavMenu(props) {
       <button className='nav-menu__button' onClick={ () => setOpen(!open) }>
         <MenuIcon/>
       </button>
-      <DropdownMenu open={open}/>
+      <DropdownMenu open={open} setOpen={setOpen}/>
     </li>
   )
 }
 
-function DropdownMenu({open}) {
+function DropdownMenu({open, setOpen}) {
   function DropdownItem({to, title}) {
     return (
-      <Link className='dropdown__menu-item' to={to}>
+      <Link className='dropdown__menu-item' to={to} onClick={ () => setOpen(!open) } >
         <p className='dropdown__menu-item-text'>{title}</p>
       </Link>
     )

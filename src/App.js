@@ -14,11 +14,11 @@ function App() {
     <div className="App">
       <BrowserRouter>
         <HeaderNav/>
-        <Switch>
-          <Route path="/" exact component={HomePage}/>
-          <Route path="/settings" component={SettingsPage}/>
-          <Route path="/linklibrary" component={LinksPage}/>
-        </Switch>
+        <HomePage/>
+        {/* <Switch>
+          <Route path="/" component={HomePage}/>
+          <Route path="/settings" exact component={SettingsPage}/>
+        </Switch> */}
       </BrowserRouter>
     </div>
   );

@@ -3,12 +3,13 @@
 @use "../../styles/partials/variables" as *;
 
 .links-page {
-  width: 100%;
-  background-color: $primary-text;
-  min-height: 100vh;
   &__wrapper {
-    // min-height: 95vh;
-    padding-top: 10rem;
+    min-height: 95vh;
+    padding:7rem 1rem 0 1rem;
+    width: 100%;
     @include flex-it(column, nowrap, center, center);
+    @include desktop {
+      padding: 9rem 0 0 0;
+    }
   }
 }

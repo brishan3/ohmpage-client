@@ -9,7 +9,7 @@
   background-position: center;
   background-size: cover;
   &__wrapper {
-    min-height: 95vh;
+    min-height: 100vh;
     @include flex-it(column, nowrap, center, center);
   }
   &__container {
@@ -17,12 +17,16 @@
   }
   &__search{
     &-wrapper {
-    background-color: $light-grey;
-    height: fit-content;
-    padding: 0.25rem;
-    width: $search-bar-width;
-    border-radius: $ui-border-radius;
-    @include box-shadow();
+      background-color: $light-grey;
+      height: fit-content;
+      padding: 0.25rem;
+      width: calc($search-bar-width*0.75);
+      border-radius: $ui-border-radius;
+      transition: 0.5s;
+      @include box-shadow();
+      @include tablet {
+        width: $search-bar-width
+      }
     }
     &-form {
       @include flex-it(row, nowrap, center, center,)
@@ -40,7 +44,11 @@
     }
   }
   &__icon-container {
-    width: $search-bar-width;
+    width: calc($search-bar-width*0.75);
+    transition: 0.5s;
+    @include tablet {
+      width: $search-bar-width
+    }
   }
 }
 
