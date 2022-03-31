@@ -133,18 +133,18 @@ const columns = [
   {
     field: 'description', 
     headerName: 'Description',
-    width: 200,
+    width: 250,
     renderCell: renderCellExpand
   },
   {
     field: 'category', 
     headerName: 'Category',
-    width: 200,
+    width: 180,
   },
   {
     field: 'subcategory', 
     headerName: 'Subcategory',
-    width: 200,
+    width: 180,
   },
 ]
 
@@ -161,7 +161,7 @@ function LinksPage({linksList}) {
         <DataGrid
           rows = {linksList}
           columns={columns}
-          pageSize={50}
+          // pageSize={50}
           sx={{
             backgroundColor: '#FAF8F9',
             width: '100%',
@@ -169,6 +169,8 @@ function LinksPage({linksList}) {
             border: 3,
             borderRadius: 4,
             borderColor: '#71c0f5',
+            fontFamily: 'Nunito',
+            fontWeight: 600
            }}
         />
       </div>
