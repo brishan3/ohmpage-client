@@ -5,10 +5,23 @@ import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import TheatersIcon from '@mui/icons-material/Theaters';
 import CodeIcon from '@mui/icons-material/Code';
-import { IconButton, Grow } from '@mui/material';
+import { IconButton, Grow, Tooltip } from '@mui/material';
+import { TooltipProps, tooltipClasses } from '@mui/material';
 import InfoIcon from '@mui/icons-material/Info';
 import EmojiPeopleIcon from '@mui/icons-material/EmojiPeople';
 import HomeRepairServiceIcon from '@mui/icons-material/HomeRepairService';
+import { styled } from '@mui/material';
+
+const LightTooltip = styled(({ className, ...props }) => (
+  <Tooltip {...props} classes={{ popper: className }} />
+))(({ theme }) => ({
+  [`& .${tooltipClasses.tooltip}`]: {
+    // backgroundColor: theme.palette.common.white,
+    // color: 'rgba(0, 0, 0, 0.87)',
+    boxShadow: theme.shadows[1],
+    fontSize: 16,
+  },
+}));
 
 function IconBar({links}) {
   // const shortList = linksList.slice(0,5);
@@ -97,7 +110,19 @@ function FadeMenu({children, list}) {
         .slice(0,50)
         .map((element) => {
           return (
-            <MenuItem key={element.url} onClick={handleClose}><a href={element.url} target="_blank">{element.title}</a></MenuItem>
+            <LightTooltip
+              title={element.description}
+              placement='bottom-start'
+              enterTouchDelay='300'
+              disableInteractive='true'
+              sx={{fontSize: '1rem'}}
+            >
+              <a href={element.url} target="_blank">
+                <MenuItem key={element.url} onClick={handleClose}>
+                  {element.title}
+                </MenuItem>
+              </a>
+            </LightTooltip>
           )
         })}
       </Menu>
