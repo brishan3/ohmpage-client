@@ -15,18 +15,16 @@ function HomePage() {
   const [background, setBackground] = useState(testBackground2);
   const [ linksList, setLinks ] = useState([]);
   const [categorizedLinks, setCategorizedLinks] = useState({ entertainment: [], social: [], webTools: [], software: [], information: []  });
-  // const [categorizedLinks, setCategorizedLinks] = useState({ });
 
   const getLinks = () => {
     axios
       .get(`${process.env.REACT_APP_API_URL}/links`)
       .then((res) => {
-        console.log(res.data);
         setLinks(res.data);
       })
       .catch((err) => {
         console.log(err);
-        return [];
+        setLinks([]);
       })
   };
 
@@ -47,12 +45,12 @@ function HomePage() {
   }
 
   useEffect(() => {
-    organizeLinks()
-  }, [linksList])
-
-  useEffect(() => {
     getLinks()
   }, [])
+
+  useEffect(() => {
+    organizeLinks()
+  }, [linksList])
 
   return (
     <main className="main" style={{backgroundImage: `url(${background})`}}>
@@ -69,7 +67,11 @@ function HomePage() {
             {...routerProps}
           />
         )}/>
-        <Route path="/settings" component={SettingsPage}/>
+        <Route path="/settings" component={(routerProps) => (
+          <SettingsPage
+            {...routerProps}
+          />
+        )}/>
       </Switch>
     </main>
   )

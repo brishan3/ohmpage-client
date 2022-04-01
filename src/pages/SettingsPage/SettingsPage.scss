@@ -4,13 +4,7 @@
 
 .settings-page {
   &__wrapper {
-    min-height: 95vh;
-    padding:7rem 1rem 0 1rem;
-    width: 100%;
     @include flex-it(row, nowrap, center, stretch);
-    @include desktop {
-      padding: 9rem 0 0 0;
-    }
   }
   &__container {
     width: 100%;

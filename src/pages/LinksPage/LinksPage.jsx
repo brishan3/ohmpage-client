@@ -157,11 +157,10 @@ const columns = [
 function LinksPage({linksList}) {
 
   return (
-      <div className='links-page__wrapper page-wrapper'>
+      <div className='links-page__wrapper page-wrapper scale-in-center'>
         <DataGrid
           rows = {linksList}
           columns={columns}
-          // pageSize={50}
           sx={{
             backgroundColor: '#FAF8F9',
             width: '100%',

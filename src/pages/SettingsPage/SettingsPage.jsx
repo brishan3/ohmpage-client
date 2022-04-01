@@ -4,7 +4,7 @@ import './SettingsPage.scss';
 
 function SettingsPage() {
   return (
-    <div className='settings-page__wrapper page-wrapper'>
+    <div className='settings-page__wrapper page-wrapper scale-in-center'>
       <div className='settings-page__container'>
 
       </div>

@@ -1,30 +1,31 @@
 import './IconBar.scss';
 import { useState } from 'react';
-import Button from '@mui/material/Button';
+import { styled } from '@mui/material';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
-import TheatersIcon from '@mui/icons-material/Theaters';
-import CodeIcon from '@mui/icons-material/Code';
+import { tooltipClasses } from '@mui/material';
 import { IconButton, Grow, Tooltip } from '@mui/material';
-import { TooltipProps, tooltipClasses } from '@mui/material';
+import CodeIcon from '@mui/icons-material/Code';
 import InfoIcon from '@mui/icons-material/Info';
+import TheatersIcon from '@mui/icons-material/Theaters';
 import EmojiPeopleIcon from '@mui/icons-material/EmojiPeople';
 import HomeRepairServiceIcon from '@mui/icons-material/HomeRepairService';
-import { styled } from '@mui/material';
+
+
+
 
 const LightTooltip = styled(({ className, ...props }) => (
   <Tooltip {...props} classes={{ popper: className }} />
-))(({ theme }) => ({
-  [`& .${tooltipClasses.tooltip}`]: {
-    // backgroundColor: theme.palette.common.white,
-    // color: 'rgba(0, 0, 0, 0.87)',
-    boxShadow: theme.shadows[1],
-    fontSize: 16,
-  },
-}));
+    ))(({ theme }) => ({
+      [`& .${tooltipClasses.tooltip}`]: {
+        boxShadow: theme.shadows[1],
+        fontSize: 16,
+      },
+    }
+  )
+);
 
 function IconBar({links}) {
-  // const shortList = linksList.slice(0,5);
   const iconColor = '#71c0f5';
   return (
     <div className="icon-bar">
@@ -111,14 +112,18 @@ function FadeMenu({children, list}) {
         .map((element) => {
           return (
             <LightTooltip
+              key={element.url}
               title={element.description}
               placement='bottom-start'
               enterTouchDelay='300'
               disableInteractive='true'
-              sx={{fontSize: '1rem'}}
+              sx={{fontSize: '1rem', fontFamily: 'Nunito'}}
             >
               <a href={element.url} target="_blank">
-                <MenuItem key={element.url} onClick={handleClose}>
+                <MenuItem
+                  onClick={handleClose}
+                  sx={{fontFamily: 'Nunito'}}
+                >
                   {element.title}
                 </MenuItem>
               </a>
