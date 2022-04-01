@@ -154,7 +154,9 @@ const columns = [
 //
 // Renders MUI data grid for a searchable library of links
 //
-function LinksPage({linksList}) {
+function LinksPage({linksList, theme}) {
+  let color = theme === 'light' ? '#FAF8F9' : `#323232`;
+  let fontColor = theme === 'light' ? `#323232` : '#FAF8F9';
 
   return (
       <div className='links-page__wrapper page-wrapper scale-in-center'>
@@ -164,14 +166,15 @@ function LinksPage({linksList}) {
           palette= 'dark'
           
           sx={{
-            backgroundColor: '#FAF8F9',
+            backgroundColor: color,
             width: '100%',
             boxShadow: 2,
             border: 3,
             borderRadius: 4,
             borderColor: '#71c0f5',
             fontFamily: 'Nunito',
-            fontWeight: 600
+            fontWeight: 600,
+            color: fontColor
            }}
         />
       </div>

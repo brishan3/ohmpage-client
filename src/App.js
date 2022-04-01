@@ -10,11 +10,22 @@ import testBackground from './assets/images/testBackground.png';
 
 
 function App() {
+  const [theme, setTheme] = useState('light');
+
+  const toggleTheme = () => {
+    setTheme( theme === 'light' ? 'dark' : 'light' )
+  }
+
   return (
     <div className="App">
       <BrowserRouter>
-        <HeaderNav/>
-        <HomePage/>
+        <HeaderNav
+          theme={theme}
+          />
+        <HomePage
+          theme={theme}
+          toggleTheme={toggleTheme}
+          />
       </BrowserRouter>
     </div>
   );

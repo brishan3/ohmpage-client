@@ -1,17 +1,18 @@
 import './HomePage.scss';
 import testBackground from '../../assets/images/testBackground.png';
 import testBackground2 from '../../assets/images/testBackground2.jpg';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useMemo } from 'react';
 import LinksPage from '../LinksPage/LinksPage';
 import { Route, Switch } from 'react-router-dom';
 import MainSearch from '../../components/MainSearch/MainSearch';
 import SettingsPage from '../SettingsPage/SettingsPage';
 import axios from 'axios';
+import { createTheme } from '@mui/material';
 
 //
 // Renders all the main 
 //
-function HomePage() {
+function HomePage({theme, toggleTheme}) {
   const [background, setBackground] = useState(testBackground2);
   const [ linksList, setLinks ] = useState([]);
   const [categorizedLinks, setCategorizedLinks] = useState({ entertainment: [], social: [], webTools: [], software: [], information: []  });
@@ -57,18 +58,22 @@ function HomePage() {
       <Switch>
         <Route path="/" exact component={(routerProps) => (
           <MainSearch
-            links={categorizedLinks} 
+            links={categorizedLinks}
+            theme={theme}
             {...routerProps}
           />
         )}/>
         <Route path="/linklibrary" component={(routerProps) => (
           <LinksPage
             linksList={linksList}
+            theme={theme}
             {...routerProps}
           />
         )}/>
         <Route path="/settings" component={(routerProps) => (
           <SettingsPage
+            theme={theme}
+            toggleTheme={toggleTheme}
             {...routerProps}
           />
         )}/>
