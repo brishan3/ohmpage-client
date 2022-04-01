@@ -45,7 +45,7 @@ function DropdownMenu({open, setOpen}) {
   return (
     <div className={`dropdown ${open ? "dropdown--active" : ""}`}>
       <DropdownItem to="/linklibrary" title="Link Library"/>
-      <DropdownItem to="/settings" title="Settings"/>
+      <DropdownItem to="/settings/background" title="Settings"/>
     </div>
   )
 }

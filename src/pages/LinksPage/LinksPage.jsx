@@ -161,6 +161,8 @@ function LinksPage({linksList}) {
         <DataGrid
           rows = {linksList}
           columns={columns}
+          palette= 'dark'
+          
           sx={{
             backgroundColor: '#FAF8F9',
             width: '100%',
