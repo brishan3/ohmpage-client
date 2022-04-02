@@ -8,7 +8,12 @@ function Nav({theme}) {
     <header className='header-nav'>
         <Link to="/">
           <h1 className={`header-nav__logo ${theme === 'dark' && 'header-nav__logo--dark'}`}>
-            <span className='header-nav__logo-prefix'>ohm</span>page
+            <span className='header-nav__logo-prefix'>
+              ohm
+            </span>
+            <span className={`${theme === 'dark' && 'header-nav__logo-suffix--dark'}`}>
+              page
+            </span>
           </h1>
         </Link>
         <nav className='header-nav__nav'>
@@ -37,9 +42,9 @@ function NavMenu({theme}) {
 }
 
 function DropdownMenu({open, setOpen, theme}) {
-  function DropdownItem({to, title}) {
+  function DropdownItem({to, title, theme}) {
     return (
-      <Link className='dropdown__menu-item' to={to} onClick={ () => setOpen(!open) } >
+      <Link className={`dropdown__menu-item ${theme === 'dark' ? " dropdown__menu-item--dark" : ""}`} to={to} onClick={ () => setOpen(!open) } >
         <p className='dropdown__menu-item-text'>{title}</p>
       </Link>
     )
@@ -48,8 +53,14 @@ function DropdownMenu({open, setOpen, theme}) {
     <div
       className={`dropdown ${open ? "dropdown--active" : ""}${theme === 'dark' ? " dropdown--dark" : ""}`}
     >
-      <DropdownItem to="/linklibrary" title="Link Library"/>
-      <DropdownItem to="/settings/background" title="Settings"/>
+      <DropdownItem to="/linklibrary"
+        title="Link Library"
+        theme={theme}
+      />
+      <DropdownItem to="/settings/background"
+        title="Settings"
+        theme={theme}
+      />
     </div>
   )
 }

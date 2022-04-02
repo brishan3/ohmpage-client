@@ -19,7 +19,7 @@ const LightTooltip = styled(({ className, ...props }) => (
     ))(({ theme }) => ({
       [`& .${tooltipClasses.tooltip}`]: {
         boxShadow: theme.shadows[1],
-        fontSize: 16,
+        fontSize: 16
       },
     }
   )
@@ -102,7 +102,7 @@ function FadeMenu({children, list}) {
         sx={{marginTop:'1rem'}}
         PaperProps={{
           style: {
-            maxHeight: 300,
+            maxHeight: "30vh",
             width: '20ch',
           },
         }}

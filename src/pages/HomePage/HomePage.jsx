@@ -12,10 +12,11 @@ import { createTheme } from '@mui/material';
 //
 // Renders all the main 
 //
-function HomePage({theme, toggleTheme}) {
+function HomePage({ theme, toggleTheme }) {
   const [background, setBackground] = useState(testBackground2);
   const [ linksList, setLinks ] = useState([]);
   const [categorizedLinks, setCategorizedLinks] = useState({ entertainment: [], social: [], webTools: [], software: [], information: []  });
+  const img = "https://images.unsplash.com/photo-1485721815420-52300915256e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2151&q=80";
 
   const getLinks = () => {
     axios
@@ -74,6 +75,7 @@ function HomePage({theme, toggleTheme}) {
           <SettingsPage
             theme={theme}
             toggleTheme={toggleTheme}
+            setBackground={setBackground}
             {...routerProps}
           />
         )}/>

@@ -4,8 +4,10 @@ import { NavLink, Route } from 'react-router-dom';
 import Brightness4Icon from '@mui/icons-material/Brightness4';
 import Brightness7Icon from '@mui/icons-material/Brightness7';
 import IconButton from '@mui/material/IconButton';
+import BackgroundSettings from '../../components/BackgroundSettings/BackgroundSettings';
 
-function SettingsPage({theme, toggleTheme}) {
+function SettingsPage({theme, toggleTheme, setBackground}) {
+
 
   return (
     <div className='settings-page__wrapper page-wrapper'>
@@ -38,9 +40,7 @@ function SettingsPage({theme, toggleTheme}) {
         </div>
         <div className='settings__sub-menu'>
             <Route path='/settings/background' component={() => (
-              <>
-                <h3>Background settings</h3>
-              </>
+                <BackgroundSettings/>
               )}
             />
             <Route path='/settings/searchsettings' component={() => (
@@ -52,7 +52,7 @@ function SettingsPage({theme, toggleTheme}) {
             <Route path='/settings/theme' component={() => (
               <>
                 <h3>Theme settings</h3>
-                <IconButton sx={{ width: '7rem', borderRadius: '25px', ml: '0.6rem', mt: '1rem' }} onClick={toggleTheme} color="inherit">
+                <IconButton sx={{ width: '7rem', borderRadius: '25px', ml: '0.6rem', mt: '1rem' }} onClick={() => {toggleTheme()}} color="inherit">
                     {theme === 'dark' ? <Brightness7Icon /> : <Brightness4Icon />}
                 </IconButton>
               </>

@@ -5,6 +5,7 @@
 .main-search{
   &__wrapper {
     @include flex-it(column, nowrap, center, center);
+    min-height: 85vh;
   }
   &__inner-wrapper {
     background-color: $light-grey;
