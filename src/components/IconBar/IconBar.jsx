@@ -115,11 +115,11 @@ function FadeMenu({children, list}) {
               key={element.url}
               title={element.description}
               placement='bottom-start'
-              enterTouchDelay='300'
-              disableInteractive='true'
+              enterTouchDelay={300}
+              disableInteractive={true}
               sx={{fontSize: '1rem', fontFamily: 'Nunito'}}
             >
-              <a href={element.url} target="_blank">
+              <a href={element.url} target="_blank" rel="noreferrer">
                 <MenuItem
                   onClick={handleClose}
                   sx={{fontFamily: 'Nunito'}}

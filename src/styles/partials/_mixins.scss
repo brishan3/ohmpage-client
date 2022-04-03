@@ -43,3 +43,9 @@
   0 100px 80px rgba(0, 0, 0, 0.12)
 ;
 }
+
+@mixin inset-shadow {
+  box-shadow:
+    rgba(5, 5, 11, 0.2) 0px 8px 60px -12px inset,
+    rgba(0, 0, 0, 0.3) 0px 6px 36px 5px inset;
+}

@@ -1,6 +1,6 @@
 import {React, useEffect, useState} from 'react';
 import './App.scss';
-import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import { BrowserRouter } from 'react-router-dom';
 import HomePage from './pages/HomePage/HomePage';
 import HeaderNav from './components/HeaderNav/HeaderNav';
 

@@ -10,8 +10,10 @@
     width: 100%;
     background-color: $off-white;
     border-radius: $ui-border-radius;
-    
-    @include flex-it (row, nowrap, flex-start, stretch);
+    @include flex-it (column, nowrap, flex-start, stretch);
+    @include tablet {
+      @include flex-it (row, nowrap, flex-start, stretch);
+    }
     &--dark {
       background-color: $primary-text;
       color: $off-white;
@@ -21,39 +23,26 @@
 
 .settings {
   &__menu-bar {
-    height: 100%;
-    width: 30%;
+    min-height: 15.2185rem;
     border-radius: $ui-border-radius;
     @include box-shadow();
     padding: 2.3rem 1rem;
     overflow: hidden;
+    @include tablet {
+      height: 100%;
+      width: 30%;
+      padding: 2.3rem 1rem;
+    }
   }
   &__sub-menu {
+    min-height: 39%;
     margin: 0.7rem;
     padding: 2.21rem;
-    width: 70%;
     border-radius: $ui-border-radius;
-    box-shadow: rgba(5, 5, 11, 0.2) 0px 8px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 6px 36px 5px inset;
-  }
-  &__menu-tab {
-    &-link {
-      width: 100%;
-      text-align: center;
-      border-radius: $ui-border-radius;
-      margin-bottom: 1.5rem;
-      padding: 0.65rem 0 0.6rem 0;
-      display: block;
-      transition: 0.4s;
-      &:hover {
-        @include box-shadow();
-      }
-      &--selected {
-        background-color: rgba(195, 195, 195, 0.13);
-        @include box-shadow();
-      }
-    }
-    &-text {
-
+    @include flex-it(column, nowrap, flex-start, center);
+    @include inset-shadow();
+    @include tablet {
+      width: 70%;
     }
   }
 }

@@ -1,3 +1,36 @@
 @use "../../styles/partials/mixins" as *;
 @use "../../styles/partials/colors" as *;
 @use "../../styles/partials/variables" as *;
+
+.background-change {
+  padding-top: 1rem;
+  @include flex-it(row, wrap, center, center);
+  gap: 1rem;
+  width: fit-content;
+  &__button {
+    $button-size: 4rem;
+    background: none;
+    width: $button-size;
+    height: $button-size;
+    overflow: hidden;
+    border: none;
+    object-fit: contain;
+    padding: 0;
+    border-radius: $ui-border-radius;
+    margin-bottom: 0.2rem;
+    transition: 0.2s;
+    &:hover {
+      filter: brightness(1.15);
+      transform: scale(1.1);
+    }
+    &-label {
+      @include flex-it(column, nowrap, center, center);
+      font-weight: 600;
+    }
+
+    &-image {
+      height: 100%;
+    }
+  }
+}
+
