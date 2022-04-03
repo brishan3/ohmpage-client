@@ -5,7 +5,7 @@
 .background-change {
   padding-top: 1rem;
   @include flex-it(row, wrap, center, center);
-  gap: 1rem;
+  gap: 1.5rem;
   width: fit-content;
   &__button {
     $button-size: 4rem;

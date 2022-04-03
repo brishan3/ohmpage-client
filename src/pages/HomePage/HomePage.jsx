@@ -12,8 +12,14 @@ import axios from 'axios';
 function HomePage({ theme, toggleTheme }) {
   const [background, setBackground] = useState();
   const [backgroundList, setBackgroundList] = useState([])
-  const [ linksList, setLinks ] = useState([]);
+  const [linksList, setLinks ] = useState([]);
   const [categorizedLinks, setCategorizedLinks] = useState({ entertainment: [], social: [], webTools: [], software: [], information: []  });
+  const [searchEngine, setSearchEngine] = useState({name: "Google", url: "https://www.google.com/search"})
+
+  const changeSearchHandler = ( searchObj ) => {
+    setSearchEngine(searchObj);
+    localStorage.setItem('ohmpageSearchEngine', JSON.stringify(searchObj));
+  }
 
   const getLinks = () => {
     axios
@@ -65,8 +71,12 @@ function HomePage({ theme, toggleTheme }) {
     getLinks()
     getBackgrounds()
     const userBackgroundPreference = localStorage.getItem('ohmpageBackground') || `${process.env.REACT_APP_API_URL}/default.png`;
+    const userSearchPreference = JSON.parse(localStorage.getItem('ohmpageSearchEngine')) || searchEngine;
     if (userBackgroundPreference && userBackgroundPreference !== background) {
       setBackground(userBackgroundPreference);
+    }
+    if (userSearchPreference && userSearchPreference !== searchEngine ) {
+      setSearchEngine(userSearchPreference);
     }
   }, [])
 
@@ -81,6 +91,7 @@ function HomePage({ theme, toggleTheme }) {
           <MainSearch
             links={categorizedLinks}
             theme={theme}
+            searchEngine={searchEngine}
             {...routerProps}
           />
         )}/>
@@ -97,6 +108,8 @@ function HomePage({ theme, toggleTheme }) {
             toggleTheme={toggleTheme}
             backgroundList={backgroundList}
             changeBackgroundHandler={changeBackgroundHandler}
+            searchEngine={searchEngine}
+            changeSearchHandler={changeSearchHandler}
             {...routerProps}
           />
         )}/>

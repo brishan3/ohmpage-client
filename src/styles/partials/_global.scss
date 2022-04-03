@@ -26,6 +26,10 @@ ul {
   padding: 0;
   margin: 0;
 }
+button {
+  font-family: inherit;
+  color: inherit;
+}
 
 
 .page-wrapper {
@@ -33,10 +37,7 @@ ul {
   margin: 0 auto;
   max-width: $page-limit;
   min-height: 95vh;
-  padding:7rem 1rem 0 1rem;
-    @include desktop {
-      padding: 9rem 0 0 0;
-    }
+  padding: 7rem 1rem 0 1rem;
 }
 
 .scale-in-center {

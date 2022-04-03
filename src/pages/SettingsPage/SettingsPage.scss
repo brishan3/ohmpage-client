@@ -4,10 +4,12 @@
 
 .settings-page {
   &__wrapper {
-    @include flex-it(row, nowrap, center, stretch);
+    @include flex-it(row, nowrap, center, center);
+    min-height: 85vh;
   }
   &__container {
     width: 100%;
+    height: fit-content;
     background-color: $off-white;
     border-radius: $ui-border-radius;
     @include flex-it (column, nowrap, flex-start, stretch);
@@ -28,10 +30,10 @@
     @include box-shadow();
     padding: 2.3rem 1rem;
     overflow: hidden;
+    gap: 1.5rem;
+    @include flex-it(column, nowrap, center, center);
     @include tablet {
-      height: 100%;
       width: 30%;
-      padding: 2.3rem 1rem;
     }
   }
   &__sub-menu {
@@ -40,9 +42,10 @@
     margin: 0.7rem;
     padding: 2.21rem;
     border-radius: $ui-border-radius;
-    @include flex-it(column, nowrap, flex-start, center);
+    @include flex-it(column, nowrap, center, center);
     @include inset-shadow();
     @include tablet {
+      height: unset;
       width: 70%;
     }
     &-title {

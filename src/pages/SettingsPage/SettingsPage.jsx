@@ -7,7 +7,7 @@ import SearchSettings from '../../components/SearchSettings/SearchSettings';
 
 
 
-function SettingsPage({ theme, toggleTheme, backgroundList, changeBackgroundHandler }) {
+function SettingsPage({ theme, toggleTheme, backgroundList, changeBackgroundHandler, changeSearchHandler, searchEngine }) {
 
   return (
     <div className='settings-page__wrapper page-wrapper'>
@@ -36,6 +36,8 @@ function SettingsPage({ theme, toggleTheme, backgroundList, changeBackgroundHand
             />
             <Route path='/settings/searchsettings' component={() => (
                 <SearchSettings
+                  searchEngine={searchEngine}
+                  changeSearchHandler={changeSearchHandler}
                 />
               )}
             />
