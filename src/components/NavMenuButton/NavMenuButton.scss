@@ -1,0 +1,20 @@
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/colors" as *;
+@use "../../styles/partials/variables" as *;
+
+.nav-menu {
+  $menu-hamburger-size: 30px;
+  height: $menu-hamburger-size;
+  
+  &__button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    & svg {
+      fill: $primary-CTA;
+      width: $menu-hamburger-size;
+      height: $menu-hamburger-size;
+      filter: drop-shadow(3px 5px 2px rgb(0 0 0 / 0.15));
+    }
+  }
+}

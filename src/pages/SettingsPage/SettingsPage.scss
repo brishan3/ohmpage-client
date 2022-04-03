@@ -35,6 +35,7 @@
     }
   }
   &__sub-menu {
+    height: 100%;
     min-height: 39%;
     margin: 0.7rem;
     padding: 2.21rem;
@@ -43,6 +44,9 @@
     @include inset-shadow();
     @include tablet {
       width: 70%;
+    }
+    &-title {
+      text-align: center;
     }
   }
 }

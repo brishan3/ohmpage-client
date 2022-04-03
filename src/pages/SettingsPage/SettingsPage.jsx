@@ -1,10 +1,9 @@
 import './SettingsPage.scss';
 import { Route } from 'react-router-dom';
-import Brightness4Icon from '@mui/icons-material/Brightness4';
-import Brightness7Icon from '@mui/icons-material/Brightness7';
-import IconButton from '@mui/material/IconButton';
 import BackgroundSettings from '../../components/BackgroundSettings/BackgroundSettings';
 import SettingsTab from '../../components/SettingsTab/SettingsTab';
+import ThemeSettings from '../../components/ThemeSettings/ThemeSettings';
+import SearchSettings from '../../components/SearchSettings/SearchSettings';
 
 
 
@@ -36,18 +35,15 @@ function SettingsPage({ theme, toggleTheme, backgroundList, changeBackgroundHand
               )}
             />
             <Route path='/settings/searchsettings' component={() => (
-              <>
-                <h3>Search engine settings</h3>
-              </>
+                <SearchSettings
+                />
               )}
             />
             <Route path='/settings/theme' component={() => (
-              <>
-                <h3>Theme settings</h3>
-                <IconButton sx={{ width: '7rem', borderRadius: '25px', mt: '1rem' }} onClick={() => {toggleTheme()}} color="inherit">
-                    {theme === 'dark' ? <Brightness7Icon /> : <Brightness4Icon />}
-                </IconButton>
-              </>
+              <ThemeSettings
+                theme={theme}
+                toggleTheme={toggleTheme}
+              />
               )}
             />
         </div>

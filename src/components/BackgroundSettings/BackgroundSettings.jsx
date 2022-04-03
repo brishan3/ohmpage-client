@@ -1,11 +1,10 @@
 import './BackgroundSettings.scss';
 
 
-
 function BackgroundSettings ({backgroundList, changeBackgroundHandler}) {
   return (
     <>
-      <h3>Background settings</h3>
+      <h3 className="settings__sub-menu-title">Background settings</h3>
       <ul className="background-change">
         {backgroundList.map( element =>
           <li key={element.title}>

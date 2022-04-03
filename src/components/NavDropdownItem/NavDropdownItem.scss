@@ -1,0 +1,24 @@
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/colors" as *;
+@use "../../styles/partials/variables" as *;
+
+.dropdown__menu-item {
+  height: 3rem;
+  border-radius: $ui-border-radius;
+  padding: 0.5rem;
+  transition: 0.5s;
+  @include flex-it(row, nowrap, center, center);
+  &:hover {
+    background-color: $menu-background;
+    filter: brightness(1.2) contrast(1.5);
+  }
+  &--dark {
+    &:hover {
+      background-color: $menu-background-dark;
+      filter: brightness(1.1) contrast(1.5);
+    }
+  }
+  &-text{
+    font-weight: 800;
+  }
+}

@@ -1,0 +1,28 @@
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/colors" as *;
+@use "../../styles/partials/variables" as *;
+
+.dropdown {
+  z-index: 2;
+  height: 0px;
+  position: absolute;
+  top: 4.3rem;
+  width: 15rem;
+  overflow: hidden;
+  transition: 0.5s;
+  gap: 0.1rem;
+  @include flex-it(column, nowrap, space-between, stretch);
+  @include box-shadow();
+  &--active {
+    transform: translateX(-80%);
+    background-color: $menu-background;
+    border-radius: $ui-border-radius;
+    padding: 0.75rem;
+    height: 120px;
+    color: $primary-text;
+  }
+  &--dark {
+    color: $off-white;
+    background-color: $menu-background-dark;
+  }
+}

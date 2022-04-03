@@ -8,7 +8,7 @@ import * as React from 'react';
 
 
 //
-// Much of the below code is adapted from example from MUI documentation,
+// Much of the code is adapted from examples from MUI documentation,
 // https://mui.com/components/data-grid/columns/
 // 
 function isOverflown(element) {
@@ -105,7 +105,6 @@ function renderCellExpand(params) {
   );
 }
 
-
 const columns = [
   {
     field: 'title', 
@@ -117,7 +116,7 @@ const columns = [
     headerName: 'URL',
     width: 200,
     renderCell: (params) => (
-      <a href={params.value} target='_blank'>
+      <a href={params.value} target='_blank' rel='noreferrer'>
         {params.value}
       </a>
     )
@@ -139,7 +138,6 @@ const columns = [
     width: 180,
   },
 ]
-
 
 //
 // Renders MUI data grid for a searchable library of links
