@@ -4,7 +4,7 @@ import { NavLink } from "react-router-dom";
 
 
 
-function SettingsTab ({title, to}) {
+function SettingsTab ({ title, to }) {
   return (
     <NavLink
       to={to}

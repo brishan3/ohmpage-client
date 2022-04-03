@@ -75,7 +75,7 @@ function HomePage({ theme, toggleTheme }) {
   }, [linksList])
 
   return (
-    <main className="main" style={{backgroundImage: `url(${background})`}}>
+    <main className="main" style={{ backgroundImage: `url(${background})` }}>
       <Switch>
         <Route path="/" exact component={(routerProps) => (
           <MainSearch

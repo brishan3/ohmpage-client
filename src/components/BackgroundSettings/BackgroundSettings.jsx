@@ -13,7 +13,7 @@ function BackgroundSettings ({backgroundList, changeBackgroundHandler}) {
               <button className="background-change__button" onClick={() => {changeBackgroundHandler(element.file)}}>
                 <img className="background-change__button-image" src={`${process.env.REACT_APP_API_URL}/${element.file}`} alt={element.title}/>
               </button>
-              { element.title}
+              { element.title }
             </label>
           </li>
           )

@@ -8,7 +8,7 @@ import SettingsTab from '../../components/SettingsTab/SettingsTab';
 
 
 
-function SettingsPage({theme, toggleTheme, backgroundList, changeBackgroundHandler}) {
+function SettingsPage({ theme, toggleTheme, backgroundList, changeBackgroundHandler }) {
 
   return (
     <div className='settings-page__wrapper page-wrapper'>

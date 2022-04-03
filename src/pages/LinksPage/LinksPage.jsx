@@ -71,7 +71,11 @@ const GridCellExpand = React.memo(function GridCellExpand( props ) {
       />
       <Box
         ref={cellValue}
-        sx={{ whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}
+        sx={{
+          whiteSpace: 'nowrap',
+          overflow: 'hidden',
+          textOverflow: 'ellipsis'
+        }}
       >
         {value}
       </Box>

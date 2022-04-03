@@ -25,7 +25,7 @@ const LightTooltip = styled(({ className, ...props }) => (
   )
 );
 
-function IconBar({links}) {
+function IconBar({ links }) {
   const iconColor = '#71c0f5';
   return (
     <div className="icon-bar">
@@ -58,7 +58,7 @@ function IconBar({links}) {
   )
 }
 
-function FadeMenu({children, list}) {
+function FadeMenu({ children, list }) {
   const [anchorEl, setAnchorEl] = useState(null);
   const open = Boolean(anchorEl);
 
@@ -99,7 +99,7 @@ function FadeMenu({children, list}) {
           vertical: 'top',
           horizontal: 'center',
         }}
-        sx={{marginTop:'1rem'}}
+        sx={{marginTop:'1.25rem'}}
         PaperProps={{
           style: {
             maxHeight: "30vh",
