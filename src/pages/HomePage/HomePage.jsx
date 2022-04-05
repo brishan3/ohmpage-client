@@ -5,6 +5,7 @@ import { Route, Switch } from 'react-router-dom';
 import MainSearch from '../../components/MainSearch/MainSearch';
 import SettingsPage from '../SettingsPage/SettingsPage';
 import axios from 'axios';
+import { API_URL } from '../../config';
 
 //
 // Renders all the main 
@@ -23,7 +24,7 @@ function HomePage({ theme, toggleTheme }) {
 
   const getLinks = () => {
     axios
-      .get(`${process.env.REACT_APP_API_URL}/links`)
+      .get(`${API_URL}/links`)
       .then((res) => {
         setLinks(res.data);
       })
@@ -33,15 +34,15 @@ function HomePage({ theme, toggleTheme }) {
       })
   };
 
-  const changeBackgroundHandler = (url) => {
-    const newBackground = process.env.REACT_APP_API_URL + '/' + url;
+  const changeBackgroundHandler = (filename) => {
+    const newBackground = `${API_URL}/${filename}`;
     setBackground(newBackground);
     localStorage.setItem('ohmpageBackground', newBackground)
   }
 
   const getBackgrounds = () => {
     axios
-      .get(`${process.env.REACT_APP_API_URL}/backgrounds`)
+      .get(`${API_URL}/backgrounds`)
       .then((res) => {
         setBackgroundList(res.data);
       })
@@ -70,7 +71,7 @@ function HomePage({ theme, toggleTheme }) {
   useEffect(() => {
     getLinks()
     getBackgrounds()
-    const userBackgroundPreference = localStorage.getItem('ohmpageBackground') || `${process.env.REACT_APP_API_URL}/default.png`;
+    const userBackgroundPreference = localStorage.getItem('ohmpageBackground') || `${API_URL}/default.png`;
     const userSearchPreference = JSON.parse(localStorage.getItem('ohmpageSearchEngine')) || searchEngine;
     if (userBackgroundPreference && userBackgroundPreference !== background) {
       setBackground(userBackgroundPreference);
