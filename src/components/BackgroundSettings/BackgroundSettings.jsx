@@ -1,4 +1,5 @@
 import './BackgroundSettings.scss';
+import { API_URL } from '../../config';
 
 
 function BackgroundSettings ({backgroundList, changeBackgroundHandler}) {
@@ -10,7 +11,7 @@ function BackgroundSettings ({backgroundList, changeBackgroundHandler}) {
           <li key={element.title}>
             <label className="background-change__button-label">
               <button className="background-change__button" onClick={() => {changeBackgroundHandler(element.file)}}>
-                <img className="background-change__button-image" src={`${process.env.REACT_APP_API_URL}/${element.thumbnail}`} alt={element.title}/>
+                <img className="background-change__button-image" src={`${API_URL}/${element.thumbnail}`} alt={element.title}/>
               </button>
               { element.title }
             </label>
