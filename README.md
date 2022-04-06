@@ -3,6 +3,9 @@
 
 Ohmpage is a customizable, minimalist homepage environment inspired by weboas.is.
 
+Ohmpage API Repository:
+https://github.com/brishan3/ohmpage-api
+
 ---
 
  

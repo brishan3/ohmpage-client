@@ -8,7 +8,7 @@ import axios from 'axios';
 import { API_URL } from '../../config';
 
 //
-// Renders all the main 
+// Renders all the main components as well as the background image
 //
 function HomePage({ theme, toggleTheme }) {
   const [background, setBackground] = useState();
