@@ -3,6 +3,10 @@ import './HeaderNav.scss';
 import { Link } from "react-router-dom";
 import NavMenuButton from "../NavMenuButton/NavMenuButton";
 
+//
+// Renders the HeaderNav component which displays the Ohmpage logo/link on the left
+// and the NavMenuButton button on the right hand side.
+//
 function Nav({theme}) {
   return (
     <header className='header-nav'>

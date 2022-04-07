@@ -1,5 +1,9 @@
 import "./SearchSettings.scss";
 
+//
+// Renders the SearchSettings component which is responsible for displaying
+// to the user options for search engine preferences that they can select.
+//
 function SearchSettings ({searchEngine, changeSearchHandler}) {
   return (
     <>

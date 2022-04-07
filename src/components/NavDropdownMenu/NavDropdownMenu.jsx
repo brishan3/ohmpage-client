@@ -1,7 +1,9 @@
 import "./NavDropdownMenu.scss";
 import NavDropdownItem from "../NavDropdownItem/NavDropdownItem";
 
-
+//
+// Renders the dropdown menu component to be displayed when the NavMenuButton is clicked
+//
 function NavDropdownMenu({open, setOpen, theme}) {
   return (
       <div

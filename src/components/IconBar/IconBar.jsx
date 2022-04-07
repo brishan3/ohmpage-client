@@ -7,7 +7,10 @@ import EmojiPeopleIcon from '@mui/icons-material/EmojiPeople';
 import HomeRepairServiceIcon from '@mui/icons-material/HomeRepairService';
 
 
-
+//
+// Renders the IconBar component which displays an icon button for each category
+// which when clicked display a dropdown list of links for that selected category
+//
 function IconBar({ links }) {
   const iconColor = '#71c0f5';
   return (
