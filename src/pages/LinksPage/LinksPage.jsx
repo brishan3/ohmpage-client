@@ -8,9 +8,10 @@ import * as React from 'react';
 
 
 //
-// Much of the code is adapted from examples from MUI documentation,
+// Adapted from examples from MUI documentation,
 // https://mui.com/components/data-grid/columns/
-// 
+//
+// Checks to see if the grid cell is overflown with text
 function isOverflown(element) {
   return (
     element.scrollHeight > element.clientHeight ||
@@ -18,6 +19,13 @@ function isOverflown(element) {
   );
 }
 
+//
+// Memoizes the function used to display expanding grid cell popper and text,
+// specifically used for the long descriptions that don't fit within the small cells.
+//
+// Adapted from examples from MUI documentation,
+// https://mui.com/components/data-grid/columns/
+//
 const GridCellExpand = React.memo(function GridCellExpand( props ) {
   const { width, value } = props;
   const wrapper = React.useRef(null);
@@ -99,6 +107,10 @@ const GridCellExpand = React.memo(function GridCellExpand( props ) {
   );
 });
 
+// Renders the expanding grid cell component
+//
+// Adapted from examples from MUI documentation,
+// https://mui.com/components/data-grid/columns/
 function renderCellExpand(params) {
   return (
     <GridCellExpand value={params.value || ''} width={params.colDef.computedWidth} />

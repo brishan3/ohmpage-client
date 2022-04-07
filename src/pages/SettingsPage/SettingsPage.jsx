@@ -6,8 +6,18 @@ import ThemeSettings from '../../components/ThemeSettings/ThemeSettings';
 import SearchSettings from '../../components/SearchSettings/SearchSettings';
 
 
-
-function SettingsPage({ theme, toggleTheme, backgroundList, changeBackgroundHandler, changeSearchHandler, searchEngine }) {
+//
+// Renders the SettingsPage component and acts as a provider of props
+// and medium for handler functions used within the settings page sub-menus
+//
+function SettingsPage({ 
+                        theme,
+                        toggleTheme,
+                        backgroundList,
+                        changeBackgroundHandler,
+                        changeSearchHandler,
+                        searchEngine
+                      }) {
 
   return (
     <div className='settings-page__wrapper page-wrapper'>

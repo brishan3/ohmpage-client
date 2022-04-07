@@ -1,6 +1,12 @@
 import "./MainSearch.scss";
 import IconBar from '../IconBar/IconBar';
 
+//
+// Renders the search bar and the icon bar below it.
+// Takes props to decide which search engine to query.
+// Displays placeholder text showing user which search engine they  currently using.
+// Passes links array down to the IconBar to be displayed.
+//
 function MainSearch({links, searchEngine}) {
   return (
   <div className='main-search__wrapper page-wrapper scale-in-center'>
