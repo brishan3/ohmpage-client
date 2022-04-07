@@ -8,7 +8,9 @@ import axios from 'axios';
 import { API_URL } from '../../config';
 
 //
-// Renders all the main components as well as the background image
+// Renders all the main components (aside from the nav bar ~ HeaderNav) as well
+// as the background image, which is visible and consistent throughout the site.
+// Also responsible for fetching the link data and background data, handling
 //
 function HomePage({ theme, toggleTheme }) {
   const [background, setBackground] = useState();

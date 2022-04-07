@@ -5,7 +5,11 @@ import HomePage from './pages/HomePage/HomePage';
 import HeaderNav from './components/HeaderNav/HeaderNav';
 
 
-
+//
+// Renders the nav bar (HeaderNav) and main housing component (HomePage),
+// Light/Dark theming is also handled and stored, where it then provided to
+// all children
+//
 function App() {
   const [theme, setTheme] = useState('light');
 
